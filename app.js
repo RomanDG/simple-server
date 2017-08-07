@@ -24,8 +24,7 @@ app.get('/', (req, res) => {
 
 app.post('/like', (req, res) => {
 	Post.update({'id': req.body.id}, {$inc: {'metaData.currentLike': 1}}).then((response) => {
-		console.log(response)
-		res.sendStatus(200);
+		res.send(req.body.id); //res.sendStatus(200);
 	}).catch(() => console.log('Error: /like'));
 });
 
